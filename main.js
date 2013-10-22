@@ -11,15 +11,15 @@
     }
     
     function gotFS(fileSystem){
-    	alert("filesystem successful");
+    	console.log("filesystem successful");
     	fileSystem.root.getFile("dummy.html",{create:true, exclusive:false},gotFileEntry, onFail);
     }
     
     function gotFileEntry(fileEntry){
-    	alert("fileEntry was successful");
+    	console.log("fileEntry was successful");
     	fileEntry.file(gotFile,onFail);
     	var sPath = fileEntry.fullPath.replace("dummy.html","");
-    	alert("This" + sPath);
+    	console.log("This" + sPath);
     	var fileTransfer = new FileTransfer();
     	fileEntry.remove();
     	
@@ -44,33 +44,12 @@
     
     
     function gotFile(file){
-    	alert("gotFile successful");
+    	console.log("gotFile successful");
     	readDataUrl(file);
     	readText(file);
     }
     
-    function readDataUrl(file){
-    	alert("readdateurl function is being called");
-    	var reader = new FileReader();
-    	reader.onloadend = function(evt){
-    		alert("Read as data URL");
-    		alert(evt.target.result);
-    	};
-    	
-    	reader.readAsDataURL(file);
-    }
-    
-    function readText(file){
-    	alert("readastext function is being called");
-    	var reader = new FileReader();
-    	reader.onloadend = function(evt){
-    		alert("Read as data Text");
-    		alert(evt.target.result);
-    	};
-    	
-    	reader.readAsText(file);
-    }
-	
+
 	// Called if something bad happens.
     // 
     function onFail(message) {

@@ -23,9 +23,20 @@
     	var fileTransfer = new FileTransfer();
     	fileEntry.remove();
     	
-    	var uri = encodeURI("");
+    	var uri = encodeURI("http://keithwhitson.biz/testCordova/test.txt");
     	
     	fileTransfer.download(
+    		uri,
+    		sPath + "thetext.txt",
+    		function(entry){
+    			console.log("download complete: " + entry.fullPath);
+    		},
+    		
+    		function(error){
+    			console.log("download error source" + error.source);
+    			console.log("download error target" + error.target);
+    			console.log("upload error code" + error.code);
+    		}
     		
     	);
     }

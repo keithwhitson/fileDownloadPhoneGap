@@ -19,7 +19,7 @@
     	alert("fileEntry was successful");
     	fileEntry.file(gotFile,onFail);
     	var sPath = fileEntry.fullPath.replace("dummy.html","");
-    	alert(sPath);
+    	alert("This" + sPath);
     }
     
     function gotFile(file){

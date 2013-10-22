@@ -12,12 +12,14 @@
     
     function gotFS(fileSystem){
     	alert("filesystem successful");
-    	fileSystem.root.getFile("readme.txt",null,gotFileEntry, onFail);
+    	fileSystem.root.getFile("dummy.html",{create:true, exclusive:false},gotFileEntry, onFail);
     }
     
     function gotFileEntry(fileEntry){
     	alert("fileEntry was successful");
     	fileEntry.file(gotFile,onFail);
+    	var sPath = fileEntry.fullPath.replace("dummy.html","");
+    	alert(sPath);
     }
     
     function gotFile(file){

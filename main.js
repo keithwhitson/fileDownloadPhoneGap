@@ -45,8 +45,6 @@
     
     function gotFile(file){
     	console.log("gotFile successful");
-    	readDataUrl(file);
-    	readText(file);
     }
     
 

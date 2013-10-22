@@ -20,7 +20,17 @@
     	fileEntry.file(gotFile,onFail);
     	var sPath = fileEntry.fullPath.replace("dummy.html","");
     	alert("This" + sPath);
+    	var fileTransfer = new FileTransfer();
+    	fileEntry.remove();
+    	
+    	var uri = encodeURI("");
+    	
+    	fileTransfer.download(
+    		
+    	);
     }
+    
+    
     
     function gotFile(file){
     	alert("gotFile successful");
@@ -56,7 +66,3 @@
       alert('Finding File Failed');
     }
     
-    function getFile(){
-    	alert("you want to get a file");
-   }
-
